@@ -2,12 +2,15 @@
 
 public class MemoryCard : MonoBehaviour
 {
+    [SerializeField] private SceneController _controller;
     [SerializeField] private GameObject _cardBack;
-    [SerializeField] private Sprite _image;
 
-    void Start()
+    public int Id { get; private set; }
+
+    public void SetCard(int id, Sprite image)
     {
-        GetComponent<SpriteRenderer>().sprite = _image;
+        Id = id;
+        GetComponent<SpriteRenderer>().sprite = image;
     }
 
     public void OnMouseDown()
