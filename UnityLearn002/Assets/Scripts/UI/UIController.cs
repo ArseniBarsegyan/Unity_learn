@@ -4,6 +4,12 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private Text scoreLabel;
+    [SerializeField] private SettingsPopup settingsPopup;
+
+    void Start()
+    {
+        settingsPopup.Close();
+    }
 
     void Update()
     {
@@ -12,7 +18,7 @@ public class UIController : MonoBehaviour
 
     public void OnOpenSettings()
     {
-        Debug.Log("open settings");
+        settingsPopup.Open();
     }
 
     public void OnPointerDown()
