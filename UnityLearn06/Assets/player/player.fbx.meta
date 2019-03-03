@@ -1,10 +1,95 @@
 fileFormatVersion: 2
-guid: 809bbf823d6be5d4b969878ee50a8979
+guid: eabf593e080746e47a1d8105d2f3ae20
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    2186277476908879412: ImportLogs
-  externalObjects: {}
+    100000: body
+    100002: head
+    100004: jaw
+    100006: lankle
+    100008: lclavicle
+    100010: lelbow
+    100012: lfingers
+    100014: lfingertips
+    100016: lfoot
+    100018: lhip
+    100020: lknee
+    100022: lknuckle
+    100024: lshoulder
+    100026: lthumb
+    100028: lthumbtip
+    100030: ltoe
+    100032: lwrist
+    100034: neck
+    100036: pelvis
+    100038: //RootNode
+    100040: rankle
+    100042: rclavicle
+    100044: relbow
+    100046: rfingers
+    100048: rfingertip
+    100050: rfoot
+    100052: rhip
+    100054: rknee
+    100056: rknuckle
+    100058: rshoulder
+    100060: rthumb
+    100062: rthumbtip
+    100064: rtoe
+    100066: rwrist
+    100068: spine1
+    100070: spine2
+    100072: spine3
+    100074: spine4
+    400000: body
+    400002: head
+    400004: jaw
+    400006: lankle
+    400008: lclavicle
+    400010: lelbow
+    400012: lfingers
+    400014: lfingertips
+    400016: lfoot
+    400018: lhip
+    400020: lknee
+    400022: lknuckle
+    400024: lshoulder
+    400026: lthumb
+    400028: lthumbtip
+    400030: ltoe
+    400032: lwrist
+    400034: neck
+    400036: pelvis
+    400038: //RootNode
+    400040: rankle
+    400042: rclavicle
+    400044: relbow
+    400046: rfingers
+    400048: rfingertip
+    400050: rfoot
+    400052: rhip
+    400054: rknee
+    400056: rknuckle
+    400058: rshoulder
+    400060: rthumb
+    400062: rthumbtip
+    400064: rtoe
+    400066: rwrist
+    400068: spine1
+    400070: spine2
+    400072: spine3
+    400074: spine4
+    2100000: lambert2
+    4300000: body
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: body
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: c99d2b3a5c9190d43a46759e1f885819, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -35,7 +120,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -56,8 +141,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
