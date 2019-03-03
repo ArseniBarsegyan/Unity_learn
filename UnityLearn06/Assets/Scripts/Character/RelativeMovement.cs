@@ -3,6 +3,7 @@
 public class RelativeMovement : MonoBehaviour
 {
     [SerializeField] private Transform target;
+    public float rotSpeed = 15.0f;
 
     void Update()
     {
@@ -17,7 +18,10 @@ public class RelativeMovement : MonoBehaviour
             target.eulerAngles = new Vector3(0, target.eulerAngles.y, 0);
             movement = target.TransformDirection(movement);
             target.rotation = tmp;
-            transform.rotation = Quaternion.LookRotation(movement);
+
+            Quaternion direction = Quaternion.LookRotation(movement);
+            transform.rotation = Quaternion.Lerp(transform.rotation,
+                direction, rotSpeed * Time.deltaTime);
         }
     }
 }
