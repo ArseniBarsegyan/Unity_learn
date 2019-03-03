@@ -1,13 +1,30 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Broadcast;
+using UnityEngine;
 
 public class WanderingAI : MonoBehaviour
 {
     [SerializeField] private GameObject fireballPrefab;
     private GameObject _fireball;
 
+    public float baseSpeed => 3.0f;
     private bool _alive;
     public float speed = 3.0f;
     public float obstacleRange = 5.0f;
+
+    void Awake()
+    {
+        Messenger<float>.AddListener(GameEvent.SpeedChanged, OnSpeedChanged);
+    }
+
+    void OnDestroy()
+    {
+        Messenger<float>.RemoveListener(GameEvent.SpeedChanged, OnSpeedChanged);
+    }
+
+    private void OnSpeedChanged(float value)
+    {
+        speed = baseSpeed * value;
+    }
 
     void Start()
     {

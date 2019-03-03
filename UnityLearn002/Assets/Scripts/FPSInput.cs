@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.Broadcast;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -8,7 +7,23 @@ public class FPSInput : MonoBehaviour
 {
     public float speed = 6.0f;
     public float gravity = -9.8f;
+    public const float baseSpeed = 6.0f;
     private CharacterController _charController;
+
+    void Awake()
+    {
+        Messenger<float>.AddListener(GameEvent.SpeedChanged, OnSpeedChanged);
+    }
+
+    void OnDestroy()
+    {
+        Messenger<float>.RemoveListener(GameEvent.SpeedChanged, OnSpeedChanged);
+    }
+
+    private void OnSpeedChanged(float value)
+    {
+        speed = baseSpeed * value;
+    }
 
     void Start()
     {

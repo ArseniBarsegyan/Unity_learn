@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Broadcast;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingsPopup : MonoBehaviour
@@ -27,6 +28,7 @@ public class SettingsPopup : MonoBehaviour
 
     public void OnSpeedValue(float speed)
     {
+        Messenger<float>.Broadcast(GameEvent.SpeedChanged, speed);
         Debug.Log("Speed: " + speed);
         PlayerPrefs.SetFloat("speed", speed);
     }
