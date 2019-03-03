@@ -1,19 +1,33 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Broadcast;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    private int _score;
     [SerializeField] private Text scoreLabel;
     [SerializeField] private SettingsPopup settingsPopup;
 
-    void Start()
+    void Awake()
     {
-        settingsPopup.Close();
+        Messenger.AddListener(GameEvent.EnemyHit, OnEnemyHit);
     }
 
-    void Update()
+    void Destroy()
     {
-        scoreLabel.text = Time.realtimeSinceStartup.ToString();
+        Messenger.RemoveListener(GameEvent.EnemyHit, OnEnemyHit);
+    }
+    private void OnEnemyHit()
+    {
+        _score++;
+        scoreLabel.text = _score.ToString();
+    }
+
+    void Start()
+    {
+        _score = 0;
+        scoreLabel.text = _score.ToString();
+        settingsPopup.Close();
     }
 
     public void OnOpenSettings()
