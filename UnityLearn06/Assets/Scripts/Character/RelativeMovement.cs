@@ -3,6 +3,7 @@
 [RequireComponent(typeof(CharacterController))]
 public class RelativeMovement : MonoBehaviour
 {
+    private Animator _animator;
     private ControllerColliderHit _contact;
 
     private float _vertSpeed;
@@ -20,6 +21,7 @@ public class RelativeMovement : MonoBehaviour
     void Start()
     {
         _vertSpeed = minFall;
+        _animator = GetComponent<Animator>();
         _charController = GetComponent<CharacterController>();
     }
 
@@ -42,7 +44,9 @@ public class RelativeMovement : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation,
                 direction, rotSpeed * Time.deltaTime);
         }
-        
+
+        _animator.SetFloat("speed", movement.sqrMagnitude);
+
         bool hitGround = false;
         RaycastHit hit;
         if (_vertSpeed < 0 && Physics.Raycast(transform.position, Vector3.down, out hit))
@@ -60,6 +64,7 @@ public class RelativeMovement : MonoBehaviour
             else
             {
                 _vertSpeed = minFall;
+                _animator.SetBool("jumping", false);
             }
         }
         else
@@ -68,6 +73,11 @@ public class RelativeMovement : MonoBehaviour
             if (_vertSpeed < terminalVelocity)
             {
                 _vertSpeed = terminalVelocity;
+            }
+            // Not allowing Controller to play clip with jumping after beginning of the scene.
+            if (_contact != null)
+            {
+                _animator.SetBool("jumping", true);
             }
             if (_charController.isGrounded)
             {
