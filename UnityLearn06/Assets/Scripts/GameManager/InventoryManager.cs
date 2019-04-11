@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour, IGameManager
 {
-    private List<string> _items;
+    private Dictionary<string, int> _items;
 
     public ManagerStatus Status { get; private set; }
 
     public void Startup()
     {
         Debug.Log("Inventory manager starting...");
-        _items = new List<string>();
+        _items = new Dictionary<string, int>();
         Status = ManagerStatus.Started;
     }
 
@@ -19,17 +19,26 @@ public class InventoryManager : MonoBehaviour, IGameManager
     {
         StringBuilder builder = new StringBuilder();
         builder.Append("Items: ");
-        foreach (string item in _items)
+        foreach (var pair in _items)
         {
-            builder.Append(item);
-            builder.Append(" ");
+            builder.Append(pair.Key);
+            builder.Append("(");
+            builder.Append(pair.Value);
+            builder.Append(") ");
         }
         Debug.Log(builder.ToString());
     }
 
     public void AddItem(string name)
     {
-        _items.Add(name);
+        if (_items.ContainsKey(name))
+        {
+            _items[name] += 1;
+        }
+        else
+        {
+            _items[name] = 1;
+        }
         DisplayItems();
     }
 }
