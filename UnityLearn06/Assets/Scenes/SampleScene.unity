@@ -436,6 +436,49 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &193631099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193631100}
+  - component: {fileID: 193631101}
+  m_Layer: 0
+  m_Name: Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &193631100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193631099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.008458257, y: 0.999293, z: -0.2210449}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &193631101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193631099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd4857a4894292468b636d1af4084e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &243107950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,7 +2469,7 @@ PrefabInstance:
     - target: {fileID: 1035951178727554522, guid: ac66bffa6d272b046b3cf2204df4ec54,
         type: 3}
       propertyPath: m_Name
-      value: EnergyItem
+      value: energy
       objectReference: {fileID: 0}
     - target: {fileID: 1035951178727554529, guid: ac66bffa6d272b046b3cf2204df4ec54,
         type: 3}
@@ -2564,7 +2607,7 @@ PrefabInstance:
     - target: {fileID: 8286096493939557944, guid: 939427fb47d18384ba7ab2abdff469bc,
         type: 3}
       propertyPath: m_Name
-      value: HealthItem
+      value: hp
       objectReference: {fileID: 0}
     - target: {fileID: 8286096493939557940, guid: 939427fb47d18384ba7ab2abdff469bc,
         type: 3}
