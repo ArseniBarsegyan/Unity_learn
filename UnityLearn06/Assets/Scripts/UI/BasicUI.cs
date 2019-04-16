@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BasicUI : MonoBehaviour
 {
@@ -45,6 +43,17 @@ public class BasicUI : MonoBehaviour
             {
                 Managers.Inventory.EquipItem(item);
             }
+
+            if (item == "hp")
+            {
+                if (GUI.Button(new Rect(posX, posY + height + buffer, width,
+                    height), "Use hp"))
+                {
+                    Managers.Inventory.ConsumeItem("hp");
+                    Managers.Player.ChangeHealth(25);
+                }
+            }
+
             posX += width + buffer;
         }
     }
