@@ -28,5 +28,24 @@ public class BasicUI : MonoBehaviour
                 new GUIContent("(" + count + ")", image));
             posX += width + buffer;
         }
+
+        string equipped = Managers.Inventory.EquippedItem;
+        if (equipped != null)
+        {
+            posX = Screen.width - (width + buffer);
+            Texture2D image = Resources.Load("Icons/" + equipped) as Texture2D;
+            GUI.Box(new Rect(posX, posY, width, height), new GUIContent("Equipped", image));
+        }
+        posX = 10;
+        posY += height + buffer;
+        foreach (string item in itemList)
+        {
+            if (GUI.Button(new Rect(posX, posY, width, height),
+                "Equip " + item))
+            {
+                Managers.Inventory.EquipItem(item);
+            }
+            posX += width + buffer;
+        }
     }
 }

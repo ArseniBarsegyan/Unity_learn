@@ -7,6 +7,20 @@ public class InventoryManager : MonoBehaviour, IGameManager
     private Dictionary<string, int> _items;
 
     public ManagerStatus Status { get; private set; }
+    public string EquippedItem { get; private set; }
+
+    public bool EquipItem(string name)
+    {
+        if (_items.ContainsKey(name) && EquippedItem != name)
+        {
+            EquippedItem = name;
+            Debug.Log("Equipped " + name);
+            return true;
+        }
+        EquippedItem = null;
+        Debug.Log("Unequipped");
+        return false;
+    }
 
     public void Startup()
     {
