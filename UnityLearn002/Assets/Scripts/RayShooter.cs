@@ -7,6 +7,9 @@ public class RayShooter : MonoBehaviour
 {
     private Camera _camera;
 
+    [SerializeField] private AudioSource soundSource;
+    [SerializeField] private AudioClip shotSound;
+
     void Start()
     {
         _camera = GetComponent<Camera>();
@@ -21,6 +24,9 @@ public class RayShooter : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
+                soundSource.Stop();
+                soundSource.clip = shotSound;
+                soundSource.Play();
                 GameObject hitObject = hit.transform.gameObject;
                 ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
                 if (target != null)
