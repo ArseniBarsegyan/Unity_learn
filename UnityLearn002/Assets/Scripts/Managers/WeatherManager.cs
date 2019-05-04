@@ -10,6 +10,13 @@ public class WeatherManager : MonoBehaviour, IGameManager
         Debug.Log("Weather manager starting...");
 
         _network = service;
+        StartCoroutine(_network.GetWeather(OnDataLoaded));
+        Status = ManagerStatus.Started;
+    }
+
+    public void OnDataLoaded(string data)
+    {
+        Debug.Log(data);
         Status = ManagerStatus.Started;
     }
 }

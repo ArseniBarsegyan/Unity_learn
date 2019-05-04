@@ -37,7 +37,7 @@ public class NetworkService : MonoBehaviour
         }
     }
 
-    public IEnumerator GetWeatherXML(Action<string> callback)
+    public IEnumerator GetWeather(Action<string> callback)
     {
         return CallAPI(XmlApi, callback);
     }
