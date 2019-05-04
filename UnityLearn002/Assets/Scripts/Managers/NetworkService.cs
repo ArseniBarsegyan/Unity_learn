@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class NetworkService : MonoBehaviour
 {
-    private const string XmlApi = "https://samples.openweathermap.org/data/2.5/forecast?id=524901&appid=b6907d289e10d714a6e88b30761fae22";
+    private const string XmlApi = "http://api.openweathermap.org/data/2.5/weather?q=Chicago,us&APPID=e41900cf4f3ced633b4a5e9257cfb312";
 
     private bool IsResponseValid(UnityWebRequest webRequest)
     {
