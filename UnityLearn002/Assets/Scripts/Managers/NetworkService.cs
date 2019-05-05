@@ -6,6 +6,19 @@ using UnityEngine.Networking;
 public class NetworkService : MonoBehaviour
 {
     private const string XmlApi = "http://api.openweathermap.org/data/2.5/weather?q=Chicago,us&APPID=e41900cf4f3ced633b4a5e9257cfb312";
+    private const string WebImageUrl = "https://upload.wikimedia.org/wikipedia/commons/c/c5/Moraine_Lake_17092005.jpg";
+
+    public IEnumerator DownloadImage(Action<Texture2D> callback)
+    {
+        UnityWebRequest webRequest = UnityWebRequestTexture.GetTexture(WebImageUrl);
+        yield return webRequest.SendWebRequest();
+        callback(DownloadHandlerTexture.GetContent(webRequest));
+    }
+
+    public IEnumerator GetWeather(Action<string> callback)
+    {
+        return CallAPI(XmlApi, callback);
+    }
 
     private bool IsResponseValid(UnityWebRequest webRequest)
     {
@@ -35,10 +48,5 @@ public class NetworkService : MonoBehaviour
             }
             callback(webRequest.downloadHandler.text);
         }
-    }
-
-    public IEnumerator GetWeather(Action<string> callback)
-    {
-        return CallAPI(XmlApi, callback);
     }
 }
