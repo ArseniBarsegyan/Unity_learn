@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Broadcast;
+using UnityEngine;
 
 public class WeatherController : MonoBehaviour
 {
@@ -8,18 +9,24 @@ public class WeatherController : MonoBehaviour
     private float _fullIntensity;
     private float _cloudValue = 0f;
 
+    void Awake()
+    {
+        Messenger.AddListener(GameEvent.WeatherUpdated, OnWeatherUpdated);
+    }
+
+    void OnDestroy()
+    {
+        Messenger.RemoveListener(GameEvent.WeatherUpdated, OnWeatherUpdated);
+    }
+
     void Start()
     {
         _fullIntensity = sun.intensity;
     }
 
-    void Update()
+    private void OnWeatherUpdated()
     {
-        SetOvercast(_cloudValue);
-        if (_cloudValue <= 1.0f)
-        {
-            _cloudValue += .001f;
-        }
+        SetOvercast(Managers.Weather.CloudValue);
     }
 
     private void SetOvercast(float value)
