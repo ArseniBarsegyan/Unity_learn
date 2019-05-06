@@ -19,7 +19,11 @@ public class ImagesManager : MonoBehaviour, IGameManager
     {
         if (_webImage == null)
         {
-            StartCoroutine(_networkService.DownloadImage(callback));
+            StartCoroutine(_networkService.DownloadImage(d =>
+            {
+                _webImage = d;
+                callback(_webImage);
+            }));
         }
         else
         {
