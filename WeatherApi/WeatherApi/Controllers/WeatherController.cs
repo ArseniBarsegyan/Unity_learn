@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WeatherApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class WeatherController : ControllerBase
     {
         // GET api/values
         [HttpGet]
@@ -26,8 +24,9 @@ namespace WeatherApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult Post([FromBody] string value)
         {
+            return Ok("WeatherApi POST call successful");
         }
 
         // PUT api/values/5
