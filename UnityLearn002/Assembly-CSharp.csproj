@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Behavior\DeviceOperator.cs" />
     <Compile Include="Assets\Scripts\Broadcast\GameEvent.cs" />
     <Compile Include="Assets\Scripts\Broadcast\Messenger.cs" />
+    <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Managers\IGameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ImagesManager.cs" />
     <Compile Include="Assets\Scripts\Managers\Managers.cs" />

@@ -24,9 +24,7 @@ public class RayShooter : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                soundSource.Stop();
-                soundSource.clip = shotSound;
-                soundSource.Play();
+                soundSource.PlayOneShot(shotSound);
                 GameObject hitObject = hit.transform.gameObject;
                 ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
                 if (target != null)
