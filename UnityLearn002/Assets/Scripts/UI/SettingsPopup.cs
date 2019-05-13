@@ -32,4 +32,14 @@ public class SettingsPopup : MonoBehaviour
         Debug.Log("Speed: " + speed);
         PlayerPrefs.SetFloat("speed", speed);
     }
+
+    public void OnSoundToggle()
+    {
+        Managers.Audio.MuteSound = !Managers.Audio.MuteSound;
+    }
+
+    public void OnSoundValue(float volume)
+    {
+        Managers.Audio.SoundVolume = volume;
+    }
 }
