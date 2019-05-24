@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SettingsPopup : MonoBehaviour
 {
     [SerializeField] private Slider speedSlider;
+    [SerializeField] private AudioClip sound;
 
     void Start()
     {
@@ -36,6 +37,8 @@ public class SettingsPopup : MonoBehaviour
     public void OnSoundToggle()
     {
         Managers.Audio.MuteSound = !Managers.Audio.MuteSound;
+        // Play sound when click on button
+        Managers.Audio.PlaySound(sound);
     }
 
     public void OnSoundValue(float volume)

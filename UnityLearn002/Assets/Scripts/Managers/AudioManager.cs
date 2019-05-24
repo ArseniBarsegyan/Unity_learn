@@ -4,6 +4,9 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour, IGameManager
 {
     private NetworkService _network;
+
+    [SerializeField] private AudioSource soundSource;
+
     public ManagerStatus Status { get; private set; }
 
     public float SoundVolume
@@ -26,5 +29,10 @@ public class AudioManager : MonoBehaviour, IGameManager
         SoundVolume = 1.0f;
 
         Status = ManagerStatus.Started;
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        soundSource.PlayOneShot(clip);
     }
 }
