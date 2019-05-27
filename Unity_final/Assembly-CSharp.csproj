@@ -53,12 +53,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AI\Fireball.cs" />
+     <Compile Include="Assets\Scripts\AI\ReactiveTarget.cs" />
+     <Compile Include="Assets\Scripts\AI\WanderingAI.cs" />
+     <Compile Include="Assets\Scripts\Broadcast\GameEvent.cs" />
+     <Compile Include="Assets\Scripts\Broadcast\Messenger.cs" />
+     <Compile Include="Assets\Scripts\Camera\OrbitCamera.cs" />
      <Compile Include="Assets\Scripts\Managers\IGameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\InventoryManager.cs" />
      <Compile Include="Assets\Scripts\Managers\Managers.cs" />
      <Compile Include="Assets\Scripts\Managers\ManagerStatus.cs" />
      <Compile Include="Assets\Scripts\Managers\NetworkService.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerCharacter.cs" />
+     <Compile Include="Assets\Scripts\Player\RelativeMovement.cs" />
+     <Compile Include="Assets\Scripts\SceneController.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Develop/Unity_learn/Unity_final/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
