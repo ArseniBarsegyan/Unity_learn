@@ -18,16 +18,7 @@ public class OrbitCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        float horInput = Input.GetAxis("Horizontal");
-        if (horInput != 0) // slow camera rotation with arrow keys
-        {
-            _rotY += horInput * rotSpeed;
-        }
-        else
-        {
-            _rotY += Input.GetAxis("Mouse X") * rotSpeed * 3; // fast rotation with mouse
-        }
-
+        _rotY -= Input.GetAxis("Horizontal") * rotSpeed;
         Quaternion rotation = Quaternion.Euler(0, _rotY, 0);
         transform.position = target.position - (rotation * _offset); // const delta that change its position with camera rotation
         transform.LookAt(target); // camera always look at it's target

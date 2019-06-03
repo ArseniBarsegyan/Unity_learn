@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Managers\NetworkService.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCharacter.cs" />
+     <Compile Include="Assets\Scripts\Player\PointClickMovement.cs" />
      <Compile Include="Assets\Scripts\Player\RelativeMovement.cs" />
      <Compile Include="Assets\Scripts\SceneController.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
