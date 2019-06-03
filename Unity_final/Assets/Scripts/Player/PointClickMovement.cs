@@ -40,8 +40,12 @@ public class PointClickMovement : MonoBehaviour
             RaycastHit mouseHit;
             if (Physics.Raycast(ray, out mouseHit))
             {
-                _targetPos = mouseHit.point;
-                _curSpeed = moveSpeed;
+                GameObject hitObject = mouseHit.transform.gameObject;
+                if (hitObject.layer == LayerMask.NameToLayer("Ground"))
+                {
+                    _targetPos = mouseHit.point;
+                    _curSpeed = moveSpeed;
+                }
             }
         }
 

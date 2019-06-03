@@ -56,6 +56,8 @@
      <Compile Include="Assets\Scripts\AI\Fireball.cs" />
      <Compile Include="Assets\Scripts\AI\ReactiveTarget.cs" />
      <Compile Include="Assets\Scripts\AI\WanderingAI.cs" />
+     <Compile Include="Assets\Scripts\Behavior\BaseDevice.cs" />
+     <Compile Include="Assets\Scripts\Behavior\ColorChangeDevice.cs" />
      <Compile Include="Assets\Scripts\Broadcast\GameEvent.cs" />
      <Compile Include="Assets\Scripts\Broadcast\Messenger.cs" />
      <Compile Include="Assets\Scripts\Camera\OrbitCamera.cs" />
