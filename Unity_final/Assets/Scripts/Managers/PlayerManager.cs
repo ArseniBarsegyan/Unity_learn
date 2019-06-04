@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Broadcast;
+using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, IGameManager
 {
@@ -31,6 +32,6 @@ public class PlayerManager : MonoBehaviour, IGameManager
             Health = 0;
         }
 
-        Debug.Log("Health: " + Health + "/" + MaxHealth);
+        Messenger.Broadcast(GameEvent.HealthUpdated);
     }
 }
