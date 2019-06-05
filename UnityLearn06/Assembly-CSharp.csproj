@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{568BA3AC-625D-108D-7519-B5F20FDECA77}</ProjectGuid>
+    <ProjectGuid>{D1A92CA7-F031-D703-750A-D418B52BCAE6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,41 +53,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AI\Fireball.cs" />
-     <Compile Include="Assets\Scripts\AI\ReactiveTarget.cs" />
-     <Compile Include="Assets\Scripts\AI\WanderingAI.cs" />
-     <Compile Include="Assets\Scripts\Behavior\BaseDevice.cs" />
-     <Compile Include="Assets\Scripts\Behavior\ColorChangeDevice.cs" />
-     <Compile Include="Assets\Scripts\Broadcast\GameEvent.cs" />
-     <Compile Include="Assets\Scripts\Broadcast\Messenger.cs" />
      <Compile Include="Assets\Scripts\Camera\OrbitCamera.cs" />
+     <Compile Include="Assets\Scripts\Character\RelativeMovement.cs" />
+     <Compile Include="Assets\Scripts\GameManager\IGameManager.cs" />
+     <Compile Include="Assets\Scripts\GameManager\InventoryManager.cs" />
+     <Compile Include="Assets\Scripts\GameManager\Managers.cs" />
+     <Compile Include="Assets\Scripts\GameManager\ManagerStatus.cs" />
+     <Compile Include="Assets\Scripts\GameManager\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\InteractiveElements\CollectibleItem.cs" />
-     <Compile Include="Assets\Scripts\Managers\IGameManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\InventoryManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\Managers.cs" />
-     <Compile Include="Assets\Scripts\Managers\ManagerStatus.cs" />
-     <Compile Include="Assets\Scripts\Managers\NetworkService.cs" />
-     <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerCharacter.cs" />
-     <Compile Include="Assets\Scripts\Player\PointClickMovement.cs" />
-     <Compile Include="Assets\Scripts\Player\RelativeMovement.cs" />
-     <Compile Include="Assets\Scripts\SceneController.cs" />
-     <Compile Include="Assets\Scripts\UI\InventoryPopup.cs" />
-     <Compile Include="Assets\Scripts\UI\UIController.cs" />
+     <Compile Include="Assets\Scripts\InteractiveElements\ColorChangeDevice.cs" />
+     <Compile Include="Assets\Scripts\InteractiveElements\DeviceOperator.cs" />
+     <Compile Include="Assets\Scripts\InteractiveElements\DeviceTrigger.cs" />
+     <Compile Include="Assets\Scripts\InteractiveElements\DoorOpenDevice.cs" />
+     <Compile Include="Assets\Scripts\UI\BasicUI.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/Develop/Unity_learn/Unity_final/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/Develop/Unity_learn/UnityLearn06/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>D:/Develop/Unity_learn/Unity_final/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>D:/Develop/Unity_learn/UnityLearn06/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>D:/Develop/Unity_learn/Unity_final/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>D:/Develop/Unity_learn/UnityLearn06/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/Develop/Unity_learn/Unity_final/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/Develop/Unity_learn/UnityLearn06/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>D:/Develop/Unity_learn/Unity_final/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>D:/Develop/Unity_learn/UnityLearn06/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -291,13 +283,13 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>D:/Develop/Unity_learn/Unity_final/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>D:/Develop/Unity_learn/UnityLearn06/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>D:/Develop/Unity_learn/Unity_final/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>D:/Develop/Unity_learn/UnityLearn06/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>D:/Develop/Unity_learn/Unity_final/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>D:/Develop/Unity_learn/UnityLearn06/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
