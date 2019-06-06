@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -23,8 +22,8 @@ public class InventoryPopup : MonoBehaviour
         {
             if (i < itemsList.Count)
             {
-                itemIcons.ElementAt(i).gameObject.SetActive(true);
-                itemLabels.ElementAt(i).gameObject.SetActive(true);
+                itemIcons[i].gameObject.SetActive(true);
+                itemLabels[i].gameObject.SetActive(true);
 
                 string item = itemsList[i];
 

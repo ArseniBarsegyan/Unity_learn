@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 135390213}
   - component: {fileID: 135390215}
   - component: {fileID: 135390214}
+  - component: {fileID: 135390216}
   m_Layer: 5
   m_Name: KeyImage
   m_TagString: Untagged
@@ -385,7 +386,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6a915028ae95b3a4a9e560a0878cc8f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -402,6 +403,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135390212}
   m_CullTransparentMesh: 0
+--- !u!114 &135390216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135390212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
 --- !u!1 &151958606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1283,7 @@ PrefabInstance:
     - target: {fileID: 8286096493939557944, guid: 939427fb47d18384ba7ab2abdff469bc,
         type: 3}
       propertyPath: m_Name
-      value: health_1
+      value: health
       objectReference: {fileID: 0}
     - target: {fileID: 8286096493939557940, guid: 939427fb47d18384ba7ab2abdff469bc,
         type: 3}
@@ -3196,7 +3211,7 @@ GameObject:
   - component: {fileID: 1420363385}
   - component: {fileID: 1420363384}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: BulletAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3422,6 +3437,7 @@ GameObject:
   - component: {fileID: 1543193838}
   - component: {fileID: 1543193840}
   - component: {fileID: 1543193839}
+  - component: {fileID: 1543193841}
   m_Layer: 5
   m_Name: HealthImage
   m_TagString: Untagged
@@ -3485,6 +3501,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543193837}
   m_CullTransparentMesh: 0
+--- !u!114 &1543193841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543193837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
 --- !u!1 &1568382220
 GameObject:
   m_ObjectHideFlags: 0
@@ -4339,7 +4369,7 @@ GameObject:
   - component: {fileID: 2002403440}
   - component: {fileID: 2002403442}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: BulletImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4384,7 +4414,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c55765f3d39393442b23f16ee29c75a0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4427,7 +4457,7 @@ GameObject:
   - component: {fileID: 2091426930}
   - component: {fileID: 2091426929}
   m_Layer: 5
-  m_Name: EnergyLabel
+  m_Name: CurrentItemLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
