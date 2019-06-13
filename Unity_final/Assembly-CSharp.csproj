@@ -62,6 +62,8 @@
      <Compile Include="Assets\Scripts\Broadcast\Messenger.cs" />
      <Compile Include="Assets\Scripts\Camera\OrbitCamera.cs" />
      <Compile Include="Assets\Scripts\InteractiveElements\CollectibleItem.cs" />
+     <Compile Include="Assets\Scripts\Level\MissionManager.cs" />
+     <Compile Include="Assets\Scripts\Level\StartupEvent.cs" />
      <Compile Include="Assets\Scripts\Managers\IGameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\InventoryManager.cs" />
      <Compile Include="Assets\Scripts\Managers\Managers.cs" />
@@ -73,6 +75,7 @@
      <Compile Include="Assets\Scripts\Player\RelativeMovement.cs" />
      <Compile Include="Assets\Scripts\SceneController.cs" />
      <Compile Include="Assets\Scripts\UI\InventoryPopup.cs" />
+     <Compile Include="Assets\Scripts\UI\StartupController.cs" />
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Develop/Unity_learn/Unity_final/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
