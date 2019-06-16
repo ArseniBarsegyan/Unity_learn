@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.Tracing;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(CharacterController))]

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Broadcast;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MissionManager : MonoBehaviour, IGameManager
@@ -33,4 +34,8 @@ public class MissionManager : MonoBehaviour, IGameManager
         }
     }
 
+    public void ReachObjective()
+    {
+        Messenger.Broadcast(GameEvent.LevelCompleted);
+    }
 }
