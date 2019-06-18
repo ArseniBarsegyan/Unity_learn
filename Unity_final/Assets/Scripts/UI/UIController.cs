@@ -40,6 +40,16 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void SaveGame()
+    {
+        Managers.Data.SaveGameState();
+    }
+
+    public void LoadGame()
+    {
+        Managers.Data.LoadGameState();
+    }
+
     private void OnHealthUpdated()
     {
         var message = "Health: " + Managers.Player.Health + "/" +

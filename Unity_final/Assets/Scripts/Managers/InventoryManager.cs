@@ -10,6 +10,16 @@ public class InventoryManager : MonoBehaviour, IGameManager
     public ManagerStatus Status { get; private set; }
     public string EquippedItem { get; private set; }
 
+    public void UpdateData(Dictionary<string, int> items)
+    {
+        _items = items;
+    }
+
+    public Dictionary<string, int> GetData()
+    {
+        return _items;
+    }
+
     public bool EquipItem(string name)
     {
         if (_items.ContainsKey(name) && EquippedItem != name)
@@ -27,7 +37,7 @@ public class InventoryManager : MonoBehaviour, IGameManager
     {
         Debug.Log("Inventory manager starting...");
         _network = service;
-        _items = new Dictionary<string, int>();
+        UpdateData(new Dictionary<string, int>());
         Status = ManagerStatus.Started;
     }
 

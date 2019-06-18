@@ -62,13 +62,14 @@
      <Compile Include="Assets\Scripts\Broadcast\Messenger.cs" />
      <Compile Include="Assets\Scripts\Camera\OrbitCamera.cs" />
      <Compile Include="Assets\Scripts\InteractiveElements\CollectibleItem.cs" />
-     <Compile Include="Assets\Scripts\Level\MissionManager.cs" />
      <Compile Include="Assets\Scripts\Level\ObjectiveTrigger.cs" />
      <Compile Include="Assets\Scripts\Level\StartupEvent.cs" />
+     <Compile Include="Assets\Scripts\Managers\DataManager.cs" />
      <Compile Include="Assets\Scripts\Managers\IGameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\InventoryManager.cs" />
      <Compile Include="Assets\Scripts\Managers\Managers.cs" />
      <Compile Include="Assets\Scripts\Managers\ManagerStatus.cs" />
+     <Compile Include="Assets\Scripts\Managers\MissionManager.cs" />
      <Compile Include="Assets\Scripts\Managers\NetworkService.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCharacter.cs" />
