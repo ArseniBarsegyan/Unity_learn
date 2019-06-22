@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(InventoryManager))]
 [RequireComponent(typeof(MissionManager))]
+[RequireComponent(typeof(AudioManager))]
 [RequireComponent(typeof(DataManager))]
 public class Managers : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Managers : MonoBehaviour
     public static PlayerManager Player { get; private set; }
     public static InventoryManager Inventory { get; private set; }
     public static MissionManager Mission { get; private set; }
+    public static AudioManager Audio { get; private set; }
 
     private List<IGameManager> _startSequence;
 
@@ -23,9 +25,10 @@ public class Managers : MonoBehaviour
         Data = GetComponent<DataManager>();
         Player = GetComponent<PlayerManager>();
         Inventory = GetComponent<InventoryManager>();
+        Audio = GetComponent<AudioManager>();
         Mission = GetComponent<MissionManager>();
 
-        _startSequence = new List<IGameManager> {Player, Inventory, Mission, Data};
+        _startSequence = new List<IGameManager> {Player, Inventory, Mission, Data, Audio};
 
         StartCoroutine(StartupManagers());
     }
