@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
         Messenger.AddListener(GameEvent.HealthUpdated, OnHealthUpdated);
         Messenger.AddListener(GameEvent.LevelCompleted, OnLevelComplete);
         Messenger.AddListener(GameEvent.LevelFailed, OnLevelFailed);
+        Messenger.AddListener(GameEvent.GameComplete, OnGameComplete);
     }
 
     void OnDestroy()
@@ -21,6 +22,13 @@ public class UIController : MonoBehaviour
         Messenger.RemoveListener(GameEvent.HealthUpdated, OnHealthUpdated);
         Messenger.RemoveListener(GameEvent.LevelCompleted, OnLevelComplete);
         Messenger.RemoveListener(GameEvent.LevelFailed, OnLevelFailed);
+        Messenger.RemoveListener(GameEvent.GameComplete, OnGameComplete);
+    }
+
+    private void OnGameComplete()
+    {
+        levelEnding.gameObject.SetActive(true);
+        levelEnding.text = "You Finished the Game!";
     }
 
     void Start()

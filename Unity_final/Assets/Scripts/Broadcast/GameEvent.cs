@@ -6,4 +6,5 @@
     public const string HealthUpdated = "HealthUpdated";
     public const string LevelCompleted = "LevelCompleted";
     public const string LevelFailed = "LevelFailed";
+    public const string GameComplete = "GameComplete";
 }
