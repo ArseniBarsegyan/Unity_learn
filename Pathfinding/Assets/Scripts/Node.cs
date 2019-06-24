@@ -11,23 +11,23 @@ public class Node
 {
     public NodeType NodeType = NodeType.Open;
 
-    public int XIndex = -1;
-    public int YIndex = -1;
+    public int xIndex = -1;
+    public int yIndex = -1;
 
     public Vector3 position;
 
-    public List<Node> Neighbors = new List<Node>();
-    public Node Previous = null;
+    public List<Node> neighbors = new List<Node>();
+    public Node previous = null;
 
     public Node(int xIndex, int yIndex, NodeType nodeType)
     {
-        XIndex = xIndex;
-        YIndex = yIndex;
+        this.xIndex = xIndex;
+        this.yIndex = yIndex;
         NodeType = nodeType;
     }
 
     public void Reset()
     {
-        Previous = null;
+        previous = null;
     }
 }

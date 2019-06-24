@@ -11,7 +11,7 @@ public class NodeView : MonoBehaviour
     {
         if (tile != null)
         {
-            gameObject.name = "Node(" + node.XIndex + ", " + node.YIndex + ")";
+            gameObject.name = "Node(" + node.xIndex + ", " + node.yIndex + ")";
             gameObject.transform.position = node.position;
             tile.transform.localScale = new Vector3(1f - borderSize, 1f, 1f - borderSize);
         }

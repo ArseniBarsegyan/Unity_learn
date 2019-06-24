@@ -2,15 +2,15 @@
 
 public class MapData : MonoBehaviour
 {
-    public int Width = 10;
-    public int Height = 5;
+    public int width = 10;
+    public int height = 5;
 
     public int[,] MakeMap()
     {
-        int[,] map = new int[Width, Height];
-        for (int y = 0; y < Height; y++)
+        int[,] map = new int[width, height];
+        for (int y = 0; y < height; y++)
         {
-            for (int x = 0; x < Width; x++)
+            for (int x = 0; x < width; x++)
             {
                 map[x, y] = 0;
             }
@@ -20,17 +20,19 @@ public class MapData : MonoBehaviour
         map[1, 1] = 1;
         map[1, 2] = 1;
 
-        map[4, 1] = 1;
+        map[3, 2] = 1;
+        map[3, 3] = 1;
+        map[3, 4] = 1;
         map[4, 2] = 1;
-        map[4, 3] = 1;
-        map[4, 4] = 1;
         map[5, 1] = 1;
-        map[6, 1] = 1;
+        map[5, 2] = 1;
 
-        map[9, 0] = 1;
-        map[9, 1] = 1;
-        map[9, 2] = 1;
-        map[9, 3] = 1;
+        map[6, 2] = 1;
+        map[6, 3] = 1;
+        map[8, 0] = 1;
+        map[8, 1] = 1;
+        map[8, 2] = 1;
+        map[8, 4] = 1;
 
         return map;
     }

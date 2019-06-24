@@ -52,7 +52,7 @@ public class Graph : MonoBehaviour
             {
                 if (nodes[x, y].NodeType != NodeType.Blocked)
                 {
-                    nodes[x, y].Neighbors = GetNeighbors(x, y);
+                    nodes[x, y].neighbors = GetNeighbors(x, y);
                 }
             }
         }
