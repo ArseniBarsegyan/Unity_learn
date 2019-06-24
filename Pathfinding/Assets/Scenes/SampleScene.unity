@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bf5d7ae34754442af87c599338309e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeViewPrefab: {fileID: 5167780607754882, guid: 8d90d6b123482f3478d2fc92b36f8db9,
+  nodeViewPrefab: {fileID: 3178011352535264466, guid: 8d90d6b123482f3478d2fc92b36f8db9,
     type: 3}
   BaseColor: {r: 1, g: 1, b: 1, a: 1}
   WallColor: {r: 0, g: 0, b: 0, a: 1}
@@ -348,7 +348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4, y: 13, z: 2}
+  m_LocalPosition: {x: 4, y: 5.4, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
