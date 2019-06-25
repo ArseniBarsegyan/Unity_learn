@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\MapData.cs" />
      <Compile Include="Assets\Scripts\Node.cs" />
      <Compile Include="Assets\Scripts\NodeView.cs" />
+     <Compile Include="Assets\Scripts\Pathfinder.cs" />
      <None Include="Assets\Resources\Mapdata\Demo.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Work/Learn/Unity_learn/Pathfinding/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
