@@ -11,6 +11,8 @@ public class DemoController : MonoBehaviour
     public int goalX = 8;
     public int goalY = 1;
 
+    public float timeStep = 0.1f;
+
     void Start()
     {
         if (mapData != null && graph != null)
@@ -31,6 +33,7 @@ public class DemoController : MonoBehaviour
                 var startNode = graph.nodes[startX, startY];
                 var goalNode = graph.nodes[goalX, goalY];
                 Pathfinder.Init(graph, graphView, startNode, goalNode);
+                StartCoroutine(Pathfinder.SearchRoutine(timeStep));
             }
         }
     }
