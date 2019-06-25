@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\MapData.cs" />
      <Compile Include="Assets\Scripts\Node.cs" />
      <Compile Include="Assets\Scripts\NodeView.cs" />
+     <None Include="Assets\ExampleMaze.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Work/Learn/Unity_learn/Pathfinding/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
