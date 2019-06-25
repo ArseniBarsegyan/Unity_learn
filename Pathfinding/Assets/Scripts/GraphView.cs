@@ -1,23 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(Graph))]
 public class GraphView : MonoBehaviour
 {
     public GameObject nodeViewPrefab;
+    public NodeView[,] NodeViews;
 
     public Color BaseColor = Color.white;
     public Color WallColor = Color.black;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void Init(Graph graph)
@@ -27,6 +25,7 @@ public class GraphView : MonoBehaviour
             Debug.LogWarning("WARNING! No graph to initialize!");
             return;
         }
+        NodeViews = new NodeView[graph.Width,graph.Height];
 
         foreach (var node in graph.nodes)
         {
@@ -36,6 +35,7 @@ public class GraphView : MonoBehaviour
             if (nodeView != null)
             {
                 nodeView.Init(node);
+                NodeViews[node.xIndex, node.yIndex] = nodeView;
 
                 if (node.NodeType == NodeType.Blocked)
                 {
@@ -44,6 +44,22 @@ public class GraphView : MonoBehaviour
                 else
                 {
                     nodeView.ColorNode(BaseColor);
+                }
+            }
+        }
+    }
+
+    public void ColorNodes(List<Node> nodes, Color color)
+    {
+        foreach (var node in nodes)
+        {
+            if (node != null)
+            {
+                var nodeView = NodeViews[node.xIndex, node.yIndex];
+
+                if (nodeView != null)
+                {
+                    nodeView.ColorNode(color);
                 }
             }
         }

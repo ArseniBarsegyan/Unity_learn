@@ -22,6 +22,9 @@ public class Graph : MonoBehaviour
     private int _width;
     private int _height;
 
+    public int Width => _width;
+    public int Height => _height;
+
     public void Init(int[,] mapData)
     {
         _mapData = mapData;
