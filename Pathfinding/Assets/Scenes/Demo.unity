@@ -221,6 +221,7 @@ MonoBehaviour:
   showArrows: 1
   exitOnGoal: 1
   IsComplete: 0
+  mode: 0
 --- !u!4 &428832912
 Transform:
   m_ObjectHideFlags: 0
