@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
@@ -20,7 +19,7 @@ public class Pathfinder : MonoBehaviour
     public Color exploredColor = Color.gray;
     public Color pathColor = Color.cyan;
     public Color arrowColor = new Color32(216, 216, 216, 255);
-    public Color highligthColor = new Color(1f,1f,0.5f,1f);
+    public Color highlightColor = new Color(1f,1f,0.5f,1f);
 
     public bool showIterations = true;
     public bool showColors = true;
@@ -77,7 +76,8 @@ public class Pathfinder : MonoBehaviour
         _startNode.distanceTraveled = 0;
     }
 
-    private void ShowColors(GraphView graphView, Node start, Node goal)
+    private void ShowColors(GraphView graphView, Node start, Node goal, 
+        bool lerpColor = false, float lerpValue = 0.5f)
     {
         if (graphView == null || start == null || goal == null)
         {
@@ -86,17 +86,17 @@ public class Pathfinder : MonoBehaviour
 
         if (_frontierNodes != null)
         {
-            graphView.ColorNodes(_frontierNodes.ToList(), frontierColor);
+            graphView.ColorNodes(_frontierNodes.ToList(), frontierColor, lerpColor, lerpValue);
         }
 
         if (_exploredNodes != null)
         {
-            graphView.ColorNodes(_exploredNodes, exploredColor);
+            graphView.ColorNodes(_exploredNodes, exploredColor, lerpColor, lerpValue);
         }
 
         if (_pathNodes != null && _pathNodes.Count > 0)
         {
-            graphView.ColorNodes(_pathNodes, pathColor);
+            graphView.ColorNodes(_pathNodes, pathColor, lerpColor, lerpValue * 2f);
         }
 
         NodeView startNodeView = graphView.NodeViews[start.xIndex, start.yIndex];
@@ -113,9 +113,9 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    private void ShowColors()
+    private void ShowColors(bool lerpColor = false, float lerpValue = 0.5f)
     {
-        ShowColors(_graphView, _startNode, _goalNode);
+        ShowColors(_graphView, _startNode, _goalNode, lerpColor, lerpValue);
     }
 
     public IEnumerator SearchRoutine(float timeStep = 0.1f)
@@ -157,7 +157,7 @@ public class Pathfinder : MonoBehaviour
 
                 if (showIterations)
                 {
-                    ShowDiagnostics();
+                    ShowDiagnostics(true, 0.5f);
 
                     yield return new WaitForSeconds(timeStep);
                 }
@@ -168,15 +168,15 @@ public class Pathfinder : MonoBehaviour
                 IsComplete = transform;
             }
         }
-        ShowDiagnostics();
+        ShowDiagnostics(true, 0.5f);
         Debug.Log("PATHFINDER SearchRoutine: elapse time: " + (Time.time - timeStart) + " seconds");
     }
 
-    private void ShowDiagnostics()
+    private void ShowDiagnostics(bool lerpColor = false, float lerpValue = 0.5f)
     {
         if (showColors)
         {
-            ShowColors();
+            ShowColors(lerpColor, lerpValue);
         }
 
         if (_graphView != null && showArrows)
@@ -185,7 +185,7 @@ public class Pathfinder : MonoBehaviour
 
             if (_frontierNodes.Contains(_goalNode))
             {
-                _graphView.ShowNodeArrows(_pathNodes, highligthColor);
+                _graphView.ShowNodeArrows(_pathNodes, highlightColor);
             }
         }
     }
@@ -201,7 +201,7 @@ public class Pathfinder : MonoBehaviour
                 {
                     float distanceToNeigbor = _graph.GetNodeDistance(node,
                         node.neighbors[i]);
-                    float newDistanceTraveled = distanceToNeigbor + node.distanceTraveled;
+                    float newDistanceTraveled = distanceToNeigbor + node.distanceTraveled + (int)node.NodeType;
                     node.neighbors[i].distanceTraveled = newDistanceTraveled;
 
                     node.neighbors[i].previous = node;
@@ -222,7 +222,7 @@ public class Pathfinder : MonoBehaviour
                 {
                     float distanceToNeigbor = _graph.GetNodeDistance(node, 
                         node.neighbors[i]);
-                    float newDistanceTraveled = distanceToNeigbor + node.distanceTraveled;
+                    float newDistanceTraveled = distanceToNeigbor + node.distanceTraveled + (int)node.NodeType;
 
                     if (float.IsPositiveInfinity(node.neighbors[i].distanceTraveled) ||
                         newDistanceTraveled < node.neighbors[i].distanceTraveled)

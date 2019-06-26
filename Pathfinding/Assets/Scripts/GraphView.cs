@@ -7,9 +7,6 @@ public class GraphView : MonoBehaviour
     public GameObject nodeViewPrefab;
     public NodeView[,] NodeViews;
 
-    public Color BaseColor = Color.white;
-    public Color WallColor = Color.black;
-
     void Start()
     {
     }
@@ -37,29 +34,30 @@ public class GraphView : MonoBehaviour
                 nodeView.Init(node);
                 NodeViews[node.xIndex, node.yIndex] = nodeView;
 
-                if (node.NodeType == NodeType.Blocked)
-                {
-                    nodeView.ColorNode(WallColor);
-                }
-                else
-                {
-                    nodeView.ColorNode(BaseColor);
-                }
+                Color originalColor = MapData.GetColorFromNodeType(node.NodeType);
+                nodeView.ColorNode(originalColor);
             }
         }
     }
 
-    public void ColorNodes(List<Node> nodes, Color color)
+    public void ColorNodes(List<Node> nodes, Color color, bool lerpColor = false, float lerpValue = 0.5f)
     {
         foreach (var node in nodes)
         {
             if (node != null)
             {
                 var nodeView = NodeViews[node.xIndex, node.yIndex];
+                Color newColor = color;
+
+                if (lerpColor)
+                {
+                    Color originalColor = MapData.GetColorFromNodeType(node.NodeType);
+                    newColor = Color.Lerp(originalColor, newColor, lerpValue);
+                }
 
                 if (nodeView != null)
                 {
-                    nodeView.ColorNode(color);
+                    nodeView.ColorNode(newColor);
                 }
             }
         }
