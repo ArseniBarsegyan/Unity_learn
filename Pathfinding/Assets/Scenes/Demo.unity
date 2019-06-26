@@ -214,6 +214,8 @@ MonoBehaviour:
   frontierColor: {r: 1, g: 0, b: 1, a: 1}
   exploredColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   pathColor: {r: 0, g: 1, b: 1, a: 1}
+  arrowColor: {r: 0.84705883, g: 0.84705883, b: 0.84705883, a: 1}
+  highligthColor: {r: 1, g: 1, b: 0.5, a: 1}
   IsComplete: 0
 --- !u!4 &428832912
 Transform:
@@ -501,4 +503,4 @@ MonoBehaviour:
   startY: 0
   goalX: 15
   goalY: 1
-  timeStep: 0.1
+  timeStep: 0.01
