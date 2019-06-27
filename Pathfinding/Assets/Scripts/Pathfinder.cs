@@ -122,7 +122,7 @@ public class Pathfinder : MonoBehaviour
 
     public IEnumerator SearchRoutine(float timeStep = 0.1f)
     {
-        float timeStart = Time.time;
+        float timeStart = Time.realtimeSinceStartup;
         yield return null;
 
         while (!IsComplete)
@@ -179,7 +179,7 @@ public class Pathfinder : MonoBehaviour
             }
         }
         ShowDiagnostics(true, 0.5f);
-        Debug.Log("PATHFINDER SearchRoutine: elapse time: " + (Time.time - timeStart) + " seconds");
+        Debug.Log("PATHFINDER SearchRoutine: elapse time: " + (Time.realtimeSinceStartup - timeStart) + " seconds");
     }
 
     private void ShowDiagnostics(bool lerpColor = false, float lerpValue = 0.5f)
@@ -243,7 +243,7 @@ public class Pathfinder : MonoBehaviour
 
                     if (!_frontierNodes.Contains(node.neighbors[i]))
                     {
-                        node.neighbors[i].priority = (int) node.neighbors[i].distanceTraveled;
+                        node.neighbors[i].priority = node.neighbors[i].distanceTraveled;
                         _frontierNodes.Enqueue(node.neighbors[i]);
                     }
                 }
@@ -272,8 +272,8 @@ public class Pathfinder : MonoBehaviour
 
                     if (!_frontierNodes.Contains(node.neighbors[i]) && _graph != null)
                     {
-                        int distanceToGoal = (int)_graph.GetManhattanDistance(node.neighbors[i], _goalNode);
-                        node.neighbors[i].priority = (int)node.neighbors[i].distanceTraveled + distanceToGoal;
+                        float distanceToGoal = _graph.GetManhattanDistance(node.neighbors[i], _goalNode);
+                        node.neighbors[i].priority = node.neighbors[i].distanceTraveled + distanceToGoal;
                         _frontierNodes.Enqueue(node.neighbors[i]);
                     }
                 }
@@ -298,7 +298,7 @@ public class Pathfinder : MonoBehaviour
                     node.neighbors[i].previous = node;
                     if (_graph != null)
                     {
-                        node.neighbors[i].priority = (int)_graph.GetManhattanDistance(node.neighbors[i], _goalNode);
+                        node.neighbors[i].priority = _graph.GetManhattanDistance(node.neighbors[i], _goalNode);
                     }
                     _frontierNodes.Enqueue(node.neighbors[i]);
                 }
