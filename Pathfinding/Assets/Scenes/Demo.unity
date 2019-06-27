@@ -219,7 +219,7 @@ MonoBehaviour:
   showArrows: 1
   exitOnGoal: 1
   IsComplete: 0
-  mode: 1
+  mode: 3
 --- !u!4 &428832912
 Transform:
   m_ObjectHideFlags: 0
@@ -517,8 +517,8 @@ MonoBehaviour:
   mapData: {fileID: 1044012977}
   graph: {fileID: 269019058}
   Pathfinder: {fileID: 428832911}
-  startX: 1
+  startX: 0
   startY: 0
-  goalX: 13
-  goalY: 10
+  goalX: 30
+  goalY: 5
   timeStep: 0.01
