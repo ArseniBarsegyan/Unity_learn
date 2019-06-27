@@ -32,7 +32,8 @@ public class Pathfinder : MonoBehaviour
     public enum Mode
     {
         BreadthFirstSearch = 0,
-        Dijkstra = 1
+        Dijkstra = 1,
+        GreedyBestFirst = 2
     }
 
     public Mode mode = Mode.BreadthFirstSearch;
@@ -154,6 +155,10 @@ public class Pathfinder : MonoBehaviour
                 {
                     ExpandFrontierDijkstra(currentNode);
                 }
+                else if (mode == Mode.GreedyBestFirst)
+                {
+                    ExpandFrontierGreedyBreadthFirst(currentNode);
+                }
 
                 if (showIterations)
                 {
@@ -236,6 +241,31 @@ public class Pathfinder : MonoBehaviour
                         node.neighbors[i].priority = (int) node.neighbors[i].distanceTraveled;
                         _frontierNodes.Enqueue(node.neighbors[i]);
                     }
+                }
+            }
+        }
+    }
+
+    void ExpandFrontierGreedyBreadthFirst(Node node)
+    {
+        if (node != null)
+        {
+            for (int i = 0; i < node.neighbors.Count; i++)
+            {
+                if (!_exploredNodes.Contains(node.neighbors[i])
+                    && !_frontierNodes.Contains(node.neighbors[i]))
+                {
+                    float distanceToNeigbor = _graph.GetNodeDistance(node,
+                        node.neighbors[i]);
+                    float newDistanceTraveled = distanceToNeigbor + node.distanceTraveled + (int)node.NodeType;
+                    node.neighbors[i].distanceTraveled = newDistanceTraveled;
+
+                    node.neighbors[i].previous = node;
+                    if (_graph != null)
+                    {
+                        node.neighbors[i].priority = (int)_graph.GetManhattanDistance(node.neighbors[i], _goalNode);
+                    }
+                    _frontierNodes.Enqueue(node.neighbors[i]);
                 }
             }
         }

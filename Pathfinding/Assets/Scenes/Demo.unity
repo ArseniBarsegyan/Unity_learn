@@ -454,7 +454,7 @@ MonoBehaviour:
   width: 10
   height: 5
   TextAsset: {fileID: 0}
-  TextureMap: {fileID: 2800000, guid: 5090b4671d65eef4ca68682082fa8074, type: 3}
+  TextureMap: {fileID: 2800000, guid: f8f14eab8261a9040a594b0156aabf5a, type: 3}
   ResourcePath: Mapdata
   openColor:
     serializedVersion: 2
@@ -517,8 +517,8 @@ MonoBehaviour:
   mapData: {fileID: 1044012977}
   graph: {fileID: 269019058}
   Pathfinder: {fileID: 428832911}
-  startX: 0
+  startX: 1
   startY: 0
-  goalX: 10
+  goalX: 13
   goalY: 10
   timeStep: 0.01
