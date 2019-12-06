@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Node : MonoBehaviour
 {
     Vector2 m_coordinate;
-    public Vector2 Coordinate
-    {
-        get => Utility.Vector2Round(m_coordinate);
-    }
+    public Vector2 Coordinate => Utility.Vector2Round(m_coordinate);
 
-    List<Node> m_neighborNodes = new List<Node>();
-    public List<Node> NeigborNodes
-    {
-        get => m_neighborNodes;
-    }
+    public List<Node> NeighborNodes { get; private set; } = new List<Node>();
 
     Board m_board;
 
@@ -46,7 +38,7 @@ public class Node : MonoBehaviour
         }
         if (m_board != null)
         {
-            m_neighborNodes = FindNeighbors(m_board.AllNodes);
+            NeighborNodes = FindNeighbors(m_board.AllNodes);
         }
     }
 
@@ -86,7 +78,7 @@ public class Node : MonoBehaviour
             ShowGeometry();
             InitNeighbors();
             m_isInitialized = true;
-        }        
+        }
     }
 
     private void InitNeighbors()
@@ -94,11 +86,11 @@ public class Node : MonoBehaviour
         StartCoroutine(InitNeighborRoutine());
     }
 
-    IEnumerator InitNeighborRoutine()
+    private IEnumerator InitNeighborRoutine()
     {
         yield return new WaitForSeconds(delay);
 
-        foreach(var n in m_neighborNodes)
+        foreach(var n in NeighborNodes)
         {
             n.InitNode();
         }

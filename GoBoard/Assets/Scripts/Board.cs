@@ -12,12 +12,8 @@ public class Board : MonoBehaviour
         new Vector2(0f, -spacing)
     };
 
-    List<Node> m_allNodes = new List<Node>();
-    public List<Node> AllNodes
-    {
-        get => m_allNodes;
-    }
-    
+    public List<Node> AllNodes { get; private set; } = new List<Node>();
+
     void Awake()
     {
         GetNodeList();
@@ -25,7 +21,7 @@ public class Board : MonoBehaviour
 
     public void GetNodeList()
     {
-        Node[] nList = GameObject.FindObjectsOfType<Node>();
-        m_allNodes = new List<Node>(nList);
+        var nList = GameObject.FindObjectsOfType<Node>();
+        AllNodes = new List<Node>(nList);
     }
 }
