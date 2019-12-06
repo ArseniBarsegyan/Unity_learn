@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ public class Node : MonoBehaviour
     }
 
     Board m_board;
+
+    private bool m_isInitialized;
 
     private void Awake()
     {
@@ -39,7 +42,7 @@ public class Node : MonoBehaviour
         }
         if (autoRun)
         {
-            ShowGeometry();
+            InitNode();
         }
         if (m_board != null)
         {
@@ -74,5 +77,30 @@ public class Node : MonoBehaviour
             }
         }
         return nList;
+    }
+
+    public void InitNode()
+    {
+        if (!m_isInitialized)
+        {
+            ShowGeometry();
+            InitNeighbors();
+            m_isInitialized = true;
+        }        
+    }
+
+    private void InitNeighbors()
+    {
+        StartCoroutine(InitNeighborRoutine());
+    }
+
+    IEnumerator InitNeighborRoutine()
+    {
+        yield return new WaitForSeconds(delay);
+
+        foreach(var n in m_neighborNodes)
+        {
+            n.InitNode();
+        }
     }
 }
