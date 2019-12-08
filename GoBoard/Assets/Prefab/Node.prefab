@@ -45,10 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   geometry: {fileID: 4175576712919673838}
+  linkPrefab: {fileID: 287714286659571638, guid: 838558b7d75052c4182bbbf7193d3710,
+    type: 3}
   scaleTime: 0.3
   easeType: 15
   autoRun: 0
-  delay: 0.2
+  delay: 0.1
 --- !u!1 &4175576712919673838
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class Node : MonoBehaviour
     public Vector2 Coordinate => Utility.Vector2Round(m_coordinate);
 
     public List<Node> NeighborNodes { get; private set; } = new List<Node>();
+    public List<Node> LinkedNodes { get; private set; } = new List<Node>();
 
     Board m_board;
 
@@ -20,6 +21,8 @@ public class Node : MonoBehaviour
     }
 
     [SerializeField] private GameObject geometry;
+    [SerializeField] private GameObject linkPrefab;
+
     public float scaleTime = 0.3f;
     public iTween.EaseType easeType = iTween.EaseType.easeInExpo;
     public bool autoRun;
@@ -90,9 +93,38 @@ public class Node : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        foreach(var n in NeighborNodes)
+        foreach(var node in NeighborNodes)
         {
-            n.InitNode();
+            if (!LinkedNodes.Contains(node))
+            {
+                LinkNode(node);
+                node.InitNode();
+            }
+        }
+    }
+
+    void LinkNode(Node targetNode)
+    {
+        if (linkPrefab != null)
+        {
+            var linkInstance = Instantiate(linkPrefab, transform.position, Quaternion.identity);
+            linkInstance.transform.parent = transform;
+
+            var link = linkInstance.GetComponent<Link>();
+            if (link != null)
+            {
+                link.DrawLink(transform.position, targetNode.transform.position);
+            }
+
+            if (!LinkedNodes.Contains(targetNode))
+            {
+                LinkedNodes.Add(targetNode);
+            }
+
+            if (!targetNode.LinkedNodes.Contains(this))
+            {
+                targetNode.LinkedNodes.Add(this);
+            }
         }
     }
 }
