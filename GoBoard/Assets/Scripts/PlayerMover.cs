@@ -10,25 +10,24 @@ public class PlayerMover : MonoBehaviour
     public float moveSpeed = 1.5f;
     public float iTweenDelay = 0f;
 
-    void Start()
-    {
-    }
+    private Board m_board;
 
-    //IEnumerator Test()
-    //{
-    //    yield return new WaitForSeconds(1f);
-    //    MoveRight();
-    //    yield return new WaitForSeconds(2f);
-    //    MoveRight();
-    //    yield return new WaitForSeconds(2f);
-    //    MoveForward();
-    //    yield return new WaitForSeconds(2f);
-    //    MoveForward();
-    //}
+    void Awake()
+    {
+        m_board = FindObjectOfType<Board>().GetComponent<Board>();
+    }
 
     public void Move(Vector3 destinationPos, float delayTime = 0.25f)
     {
-        StartCoroutine(MoveRoutine(destinationPos, delayTime));
+        if (m_board != null)
+        {
+            var targetNode = m_board.FindNodeAt(destinationPos);
+
+            if (targetNode != null)
+            {
+                StartCoroutine(MoveRoutine(destinationPos, delayTime));
+            }
+        }
     }
 
     IEnumerator MoveRoutine(Vector3 destinationPos, float delayTime)
@@ -58,25 +57,25 @@ public class PlayerMover : MonoBehaviour
 
     public void MoveLeft()
     {
-        Vector3 newPosition = transform.position + new Vector3(-2, 0, 0);
+        Vector3 newPosition = transform.position + new Vector3(-Board.spacing, 0, 0);
         Move(newPosition, 0);
     }
 
     public void MoveRight()
     {
-        Vector3 newPosition = transform.position + new Vector3(2, 0, 0);
+        Vector3 newPosition = transform.position + new Vector3(Board.spacing, 0, 0);
         Move(newPosition, 0);
     }
 
     public void MoveForward()
     {
-        Vector3 newPosition = transform.position + new Vector3(0, 0, 2);
+        Vector3 newPosition = transform.position + new Vector3(0, 0, Board.spacing);
         Move(newPosition, 0);
     }
 
     public void MoveBackward()
     {
-        Vector3 newPosition = transform.position + new Vector3(0, 0, -2);
+        Vector3 newPosition = transform.position + new Vector3(0, 0, -Board.spacing);
         Move(newPosition, 0);
     }
 }
