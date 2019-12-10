@@ -14,6 +14,8 @@ public class Node : MonoBehaviour
 
     private bool m_isInitialized;
 
+    public LayerMask obstacleLayer;
+
     private void Awake()
     {
         m_board = FindObjectOfType<Board>();
@@ -97,8 +99,12 @@ public class Node : MonoBehaviour
         {
             if (!LinkedNodes.Contains(node))
             {
-                LinkNode(node);
-                node.InitNode();
+                Obstacle obstacle = FindObstacle(node);
+                if (obstacle == null)
+                {
+                    LinkNode(node);
+                    node.InitNode();
+                }
             }
         }
     }
@@ -126,5 +132,24 @@ public class Node : MonoBehaviour
                 targetNode.LinkedNodes.Add(this);
             }
         }
+    }
+
+    Obstacle FindObstacle(Node targetNode)
+    {
+        Vector3 checkDirection = targetNode.transform.position - transform.position;
+        RaycastHit raycastHit;
+
+        if (Physics.Raycast(transform.position,
+            checkDirection,
+            out raycastHit,
+            Board.spacing + 0.1f,
+            obstacleLayer))
+        {
+            Debug.Log("Node find obstacle: hit an obstacle from " + name
+                                                                  + " to " + targetNode.name);
+            return raycastHit.collider.GetComponent<Obstacle>();
+        }
+
+        return null;
     }
 }

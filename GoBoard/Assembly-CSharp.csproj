@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Board.cs" />
      <Compile Include="Assets\Scripts\Link.cs" />
      <Compile Include="Assets\Scripts\Node.cs" />
+     <Compile Include="Assets\Scripts\Obstacle.cs" />
      <Compile Include="Assets\Scripts\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMover.cs" />

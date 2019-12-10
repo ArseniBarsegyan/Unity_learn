@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1437caf2ee587469916c673637345d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 512
   geometry: {fileID: 4175576712919673838}
   linkPrefab: {fileID: 287714286659571638, guid: 838558b7d75052c4182bbbf7193d3710,
     type: 3}
