@@ -49,4 +49,13 @@ public class Board : MonoBehaviour
     {
         PlayerNode = FindPlayerNode();
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0f,1f,1f,0.5f);
+        if (PlayerNode != null)
+        {
+            Gizmos.DrawSphere(PlayerNode.transform.position, 0.2f);
+        }
+    }
 }

@@ -27,7 +27,6 @@ public class Node : MonoBehaviour
 
     public float scaleTime = 0.3f;
     public iTween.EaseType easeType = iTween.EaseType.easeInExpo;
-    public bool autoRun;
 
     public float delay = 1f;
 
@@ -36,14 +35,11 @@ public class Node : MonoBehaviour
         if (geometry != null)
         {
             geometry.transform.localScale = Vector3.zero;
-        }
-        if (autoRun)
-        {
-            InitNode();
-        }
-        if (m_board != null)
-        {
-            NeighborNodes = FindNeighbors(m_board.AllNodes);
+
+            if (m_board != null)
+            {
+                NeighborNodes = FindNeighbors(m_board.AllNodes);
+            }
         }
     }
 

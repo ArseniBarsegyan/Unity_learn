@@ -20,6 +20,10 @@ public class PlayerMover : MonoBehaviour
     void Start()
     {
         UpdateBoard();
+        if (m_board != null && m_board.PlayerNode != null)
+        {
+            m_board.PlayerNode.InitNode();
+        }
     }
 
     public void Move(Vector3 destinationPos, float delayTime = 0.25f)
@@ -28,7 +32,7 @@ public class PlayerMover : MonoBehaviour
         {
             var targetNode = m_board.FindNodeAt(destinationPos);
 
-            if (targetNode != null)
+            if (targetNode != null && m_board.PlayerNode.LinkedNodes.Contains(targetNode))
             {
                 StartCoroutine(MoveRoutine(destinationPos, delayTime));
             }
