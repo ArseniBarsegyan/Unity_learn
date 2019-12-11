@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
+    private PlayerMover _player;
+
     public static float spacing = 2f;
     public static readonly Vector2[] directions =
     {
@@ -13,9 +15,11 @@ public class Board : MonoBehaviour
     };
 
     public List<Node> AllNodes { get; private set; } = new List<Node>();
+    public Node PlayerNode { get; private set; }
 
     void Awake()
     {
+        _player = FindObjectOfType<PlayerMover>().GetComponent<PlayerMover>();
         GetNodeList();
     }
 
@@ -29,5 +33,20 @@ public class Board : MonoBehaviour
     {
         Vector2 boardCoord = Utility.Vector2Round(new Vector2(position.x, position.z));
         return AllNodes.Find(x => x.Coordinate == boardCoord);
+    }
+
+    public Node FindPlayerNode()
+    {
+        if (_player != null && !_player.isMoving)
+        {
+            return FindNodeAt(_player.transform.position);
+        }
+
+        return null;
+    }
+
+    public void UpdatePlayerNode()
+    {
+        PlayerNode = FindPlayerNode();
     }
 }
