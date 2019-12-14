@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private Board board;
     private PlayerManager player;
 
-    public bool HasLevelStarted { get; }
-    public bool IsGamePlaying { get; }
-    public bool IsGameOver { get; }
-    public bool HasLevelFinished { get; }
+    public bool HasLevelStarted { get; private set; }
+    public bool IsGamePlaying { get; private set; }
+    public bool IsGameOver { get; private set; }
+    public bool HasLevelFinished { get; private set; }
 
     public float Delay = 1f;
 
@@ -40,16 +41,50 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartLevelRoutine()
     {
-        yield return null;
+        Debug.Log("Start level");
+        player.playerInput.InputEnabled = false;
+        while (!HasLevelStarted)
+        {
+            // show start screen
+            yield return null;
+        }
     }
 
     IEnumerator PlayLevelRoutine()
     {
-        yield return null;
+        Debug.Log("Play level");
+        IsGamePlaying = true;
+        yield return new WaitForSeconds(Delay);
+        player.playerInput.InputEnabled = true;
+
+        while (!IsGameOver)
+        {
+            // check for game over condition
+            yield return null;
+        }
     }
 
     IEnumerator EndLevelRoutine()
     {
-        yield return null;
+        Debug.Log("End level");
+        player.playerInput.InputEnabled = false;
+        // show end screen
+        while (!HasLevelFinished)
+        {
+            yield return null;
+        }
+
+        RestartLevel();
+    }
+
+    private void RestartLevel()
+    {
+        var scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
+    public void PlayLevel()
+    {
+        HasLevelStarted = true;
     }
 }
