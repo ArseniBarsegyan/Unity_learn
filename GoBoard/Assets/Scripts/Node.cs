@@ -141,8 +141,6 @@ public class Node : MonoBehaviour
             Board.spacing + 0.1f,
             obstacleLayer))
         {
-            Debug.Log("Node find obstacle: hit an obstacle from " + name
-                                                                  + " to " + targetNode.name);
             return raycastHit.collider.GetComponent<Obstacle>();
         }
 
