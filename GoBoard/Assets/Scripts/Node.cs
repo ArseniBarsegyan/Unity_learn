@@ -30,6 +30,8 @@ public class Node : MonoBehaviour
 
     public float delay = 1f;
 
+    public bool isLevelGoal = false;
+
     void Start()
     {
         if (geometry != null)
