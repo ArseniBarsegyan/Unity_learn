@@ -67,9 +67,20 @@ public class GameManager : MonoBehaviour
         PlayLevelEvent?.Invoke();
         while (!IsGameOver)
         {
-            // check for game over condition
             yield return null;
+            IsGameOver = IsWinner();
         }
+        Debug.Log("WIN");
+    }
+
+    private bool IsWinner()
+    {
+        if (board.PlayerNode != null)
+        {
+            return board.PlayerNode == board.GoalNode;
+        }
+
+        return false;
     }
 
     IEnumerator EndLevelRoutine()

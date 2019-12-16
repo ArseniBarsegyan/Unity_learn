@@ -3021,7 +3021,7 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   isMoving: 0
   easeType: 8
-  moveSpeed: 1.5
+  moveSpeed: 5
   iTweenDelay: 0
 --- !u!114 &1266913690
 MonoBehaviour:

@@ -5,16 +5,10 @@ public class PlayerInput : MonoBehaviour
     private float m_h;
     private float m_v;
 
-    private bool m_inputEnabled = false;
+    public float H => m_h;
+    public float V => m_v;
 
-    public float H { get => m_h; }
-    public float V { get => m_v; }
-
-    public bool InputEnabled
-    {
-        get => m_inputEnabled;
-        set => m_inputEnabled = value;
-    }
+    public bool InputEnabled { get; set; } = false;
 
     public void GetKeyInput()
     {
@@ -22,6 +16,11 @@ public class PlayerInput : MonoBehaviour
         {
             m_h = Input.GetAxisRaw("Horizontal");
             m_v = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            m_h = 0;
+            m_v = 0;
         }
     }
 }
