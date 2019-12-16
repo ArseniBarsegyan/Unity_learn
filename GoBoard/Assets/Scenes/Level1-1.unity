@@ -3749,7 +3749,7 @@ MonoBehaviour:
   goalPrefab: {fileID: 363402863656572670, guid: 2639001138e4c06499ae432418688ffc,
     type: 3}
   drawGoalTime: 2
-  drawGoalDelay: 2
+  drawGoalDelay: 1.5
   drawGoalEaseType: 16
 --- !u!1001 &1616609165
 PrefabInstance:
@@ -4488,7 +4488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5584736b5fcb6ef4bb4d78d20be28b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Delay: 2.5
+  Delay: 1
   StartLevelEvent:
     m_PersistentCalls:
       m_Calls:
@@ -4541,6 +4541,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1600031045}
         m_MethodName: DrawGoal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1600031045}
+        m_MethodName: InitBoard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

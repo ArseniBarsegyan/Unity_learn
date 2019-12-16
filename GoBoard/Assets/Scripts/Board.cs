@@ -86,4 +86,12 @@ public class Board : MonoBehaviour
                 ));
         }
     }
+
+    public void InitBoard()
+    {
+        if (PlayerNode != null)
+        {
+            PlayerNode.InitNode();
+        }
+    }
 }
