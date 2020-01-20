@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public bool HasLevelStarted { get; private set; }
     public bool IsGamePlaying { get; private set; }
     public bool IsGameOver { get; private set; }
-    public bool HasLevelFinished { get; private set; }
+    public bool HasLevelFinished { get; set; }
 
     public float Delay = 1f;
 
