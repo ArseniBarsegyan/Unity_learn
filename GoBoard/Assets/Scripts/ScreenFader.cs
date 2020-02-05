@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(MaskableGraphic))]
-public class ScriptFader : MonoBehaviour
+public class ScreenFader : MonoBehaviour
 {
     public Color solidColor = Color.white;
     public Color clearColor = new Color(1f,1f,1f,0f);

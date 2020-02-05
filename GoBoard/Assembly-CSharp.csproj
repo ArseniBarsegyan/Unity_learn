@@ -65,7 +65,7 @@
      <Compile Include="Assets\Scripts\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMover.cs" />
-     <Compile Include="Assets\Scripts\ScriptFader.cs" />
+     <Compile Include="Assets\Scripts\ScreenFader.cs" />
      <Compile Include="Assets\Scripts\Spinner.cs" />
      <Compile Include="Assets\Scripts\Utility.cs" />
  <Reference Include="Unity.Timeline.Editor">
